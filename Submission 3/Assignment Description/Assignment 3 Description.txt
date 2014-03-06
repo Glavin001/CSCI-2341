@@ -1,0 +1,34 @@
+Overview
+
+This week you will enhance your program from last week by turning it into a "menu-driven" version, that is, a program that permits the user to choose from a menu whether to encode or decode a file of text, as well as to get information on the program, to display a textfile, and (of course) to quit. By giving the program itself the ability to display a textfile you can use the program to examine the result of your actions.
+
+The encoding/decoding scheme is exactly the same as before, so you will be able to reuse much of your code from last week. The major changes and enhancements involve the "infrastructure" aspects of the program.
+
+Steps to Perform
+
+1.Copy the sample executable demo_encode_decode2.exe, and its accompanying text items file encode_decode2.txt. Now run the demo, and note that it first displays an opening screen and then pauses. When Enter is pressed it displays a menu of five options.
+
+2.First choose option 2 and study the descriptive information provided by the "online help".
+
+3.Next, create some sample input files and run the program using each of these files. Put the program through all its paces, including both encoding and decoding, and give it scenarios in which it is required to display the kinds of errors that it must recognize and report.
+
+4.Write pseudocode for a solution of this problem and revise it until you are convinced that a program that implements your pseudocode will be the one you want.
+
+5.Translate your pseudocode into C++ and continue testing your program until you are convinced it works correctly.
+
+6.Make sure your source code is identified, formatted, and documented properly, and follows all the required rules and guidelines.
+
+7.Finally, submit the two required files over the web, via the link on the course home page.
+
+Additional Notes, Requirements, Specifications and/or Hints (if any)
+
+1.The first order of business will be to fix any remaining problems with your encoding and decoding routines from last week, if necessary.
+
+2.Note that no shell is provided this week. You will need some additional functions (prototypes and definitions, all in the proper place and in the proper order), and all formatted properly and having appropriate doxygen-style documentation.
+
+3.This week's text items file, encode_decode2.txt, contains a revised program description to reflect the fact that this is now a menu-driven program. Also, some of the previous error messages relating to command-line parameters are no longer relevant and have therefore been deleted. Also, the messages that remain no longer say that the program is terminating, since this is no longer a "one pass" program. Even if the user makes a mistake (by entering a wrong file name, for example), the program does not terminate.
+
+4.In addition to the DisplayOpeningScreen() and Pause() 
+functions, and the TextItems class, all of which you have already used, the other facilities from the utilities package that you will want to employ are the DisplayTextfile(), userSaysYes(), and ReadString() functions, and (of course) the Menu class.
+
+5.When two files are compared using option 6 from the menu and one of the files (or both) is not available (because a name has been misspelled, for example), an error message is produced. But note that the message is produced by the fc command itself, and thus your program does not have to deal directly with the problem. On the other hand, the messages about not being able to open a file when you are encoding or decoding must be produced by your program. The appropriate messages are given in the text items file.

@@ -1,0 +1,58 @@
+encode_decode2.txt
+This file contains a program description for Submission 03 in
+CSCI 2341 for the fall of 2012. It is the file of text items
+loaded by executable for this submission when it runs.
+========================================
+ProgramDescription
+
+The purpose of this "menu-driven" program is to encode and/or decode text
+messages. When Enter is pressed following the display of the opening screen,
+a menu of five options is displayed, and their meanings should be obvious.
+
+Any plain-text message can be encoded, and will be encoded using an encoding
+scheme described elsewhere. The program can also decode a message, provided
+the message has been encoded using this same encoding scheme. 
+
+Each message (encoded or decoded) must be in a separate textfile. The user
+will be asked to enter the names of the input and output files required,
+immediately after choosing an option from the menu that requires a message
+to be encoded or decoded. A single run of the program allows the user to
+encode and/or decode as many message files as desired.
+
+Though not required by the program, using some sort of convention such as the
+filename extensions .pt (for plain text), .enc (for an encoded file), and .dec
+(for an encoded file that has been decoded), is highly recommended.
+
+
+
+
+                                                                   Page 1 of 1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+----------------------------------------
+Error:CannotOpenInputFile
+
+Error: Input file could not be opened.
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+----------------------------------------
+Error:CannotOpenOutputFile
+
+Error: Output file could not be opened.
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+----------------------------------------
+Information:EncodingComplete
+
+The contents of the input file have been encoded and placed in the output file.
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+----------------------------------------
+Information:DecodingComplete
+
+The contents of the input file have been decoded and placed in the output file.
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+----------------------------------------
+========================================
+This is the end of the file and any text following the above line
+of 40 equal signs will be ignored.

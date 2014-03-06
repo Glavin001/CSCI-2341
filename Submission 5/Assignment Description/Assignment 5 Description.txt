@@ -1,0 +1,23 @@
+Overview
+
+This week your task is to design and write your own driver program for your Fraction class that emulates the instructor-supplied driver that you used last week.
+
+Steps to Perform
+
+1.Study the sample executable again, with special attention to the behavior of the driver, now that you know how the Fraction class itself behaves. Note that the sample executable this week is identical to the one from last week, except for the submission identification information and build time on the opening screen. Among other things, be sure you are familiar with all the messages that are provided in the the text items file, as well as where each one appears as the program runs.
+
+2.Design and write the required driver program and place it in the file compute_with_fractions.cpp.
+
+3.If there were any lingering problems with your Fraction class, make the appropriate corrections and/or revisions to your fraction.cpp file.
+
+4.Make sure your source code is identified, formatted, and documented properly, and follows all the required rules and guidelines.
+
+This week it is particularly important to make sure that your opening screen displays the submission information for Submission 05 and the new compilation time. If it shows the compilation time from last week and Submission 04 information, the marker might be inclined to conclude that you got your executable just by linking to last week's object-file driver, and you certainly wouldn't want him to think that! Note as well that you can now put your identification information directly in the driver file, not the class file, since you are writing that driver file this week.
+
+5.Finally, submit the required files over the web, via the link on the course home page.
+
+Additional Notes, Requirements, Specifications and/or Hints (if any)
+
+1.Use appropriate free functions to perform the major tasks of your program, thereby increasing its modularity and readability, as we jhave discussed. And, this week, in addition to the usual documentation to make your program code readable, you must use doxygen-style comments to document these functions. [One of these times, but not this week, we may have you submit your HTML documentation, so you should be practicing your doxygen-style comments at every opportunity.]
+
+2.Note that the text items file compute_with_fractions.txt from last week applies this week as well, and note too that it contains, in addition to the program info, some additional and very useful text items for your driver.

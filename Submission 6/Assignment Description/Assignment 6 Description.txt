@@ -1,0 +1,31 @@
+Overview
+
+This week your goal is to produce a useful "utility" program that you may find helpbul later for producing sequences of random integer, real or string values quickly. The program will take a varying number of command-line parameters, generate the requested values, and display them on the standard output in a user-chosen format. Particular sequences may be replicated at a later time by choosing the same seed each time. As usual, when run without any command-line parameters, the program displays an ID screen, followed by several screens describing in detail program usage, along with some examples.
+
+Steps to Perform
+
+1.Copy the sample executable and run it several times, the first time without any command line parameters.
+
+2.Study the program description until you understand what the input and output of this program are supposed to look like, and begin your testing by trying the sample data sets of the examples shown in the program usage description. Then create some sample input data sets of your own and run the program again, using each of these input data sets. Make sure you get the output you expect.
+
+3.Write pseudocode for a solution of this problem and revise it until you are convinced that a program that implements your pseudocode will be the one you want.
+
+4.Translate your pseudocode into C++ and continue testing until you are convinced your program is behaving properly.
+
+5.Make sure your source code is identified, formatted, and documented properly.
+
+6.Finally, submit the required files over the web, via the link on the course home page.
+
+Additional Notes, Requirements, Specifications and/or Hints (if any)
+
+1.Your program must use an object of the RandomGenerator class from the utilities package to generate any and all sequences of random values requested by the user. This class is designed in such a way that it makes your life much easier than it would be if you did not have this class and wanted to generate the kinds of values produced by this program.
+
+2.Note that just as there is an atoi() function to convert a C-string to an integer (which you have already seen and used), there is also an atof() function for converting a C-string to a floating-point value.
+
+3.Remember that C++ string objects are generally easier to work with than C-strings because of the large selection of methods in the C++ string class interface. So, try to find some helpful ways to use the C++ string class to do what you have to do with C-strings in this submission. That process starts, of course, by converting any C-string you have to work with to the corresponding C++ string object with the appropriate C++ string class constructor.
+
+4.By default this program sends its output to the screen. If you want to send it to a file instead, you can do so by using the "redirection operator" (>) (which works in both Windows and Linux) as illustrated by the following example:
+
+> generate_random_values.exe 0 i 20 100 200 5 6 > output.txt
+
+The above command will send the program's output to the file output.txt.

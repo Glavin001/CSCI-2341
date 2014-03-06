@@ -1,0 +1,29 @@
+Overview
+
+This first week you will design and write a program that makes use of a command-line parameter, and gives you an opportunity to practice some string manipulation, looping, decision making, file input, and minimal use of the instructor-supplied utilities package, among other things.
+
+Steps to Perform
+
+1.Copy the sample executable and run it. Note that when no command-line parameter is supplied, the program first displays an opening screen containing ID information for the programmer as well as the program itself. Next it displays an additional two screens containing a description of the program, and then it terminates. Your program must do exactly the same thing, except of course that the ID information must be yours. The submission title must be exactly as shown. The third line of the opening screen is produced automatically by the call to DisplayOpeningScreen().
+
+2.Study the program description until you understand what the input and output of this program look like. We could supply sample input and output, but that would miss an important point. An important skill to develop is the ability to infer from a description what is required.
+
+3.Construct several short data files and try each one out with the sample program to confirm the input and output format is as described by the program. The files should, of course, be of varying lengths. Make sure you fully understand the format of the required input and output before proceeding.
+
+4.Write pseudocode for a solution of this problem and revise it until you are convinced that a program that implements your pseudocode will be the one you want. Do not assume anything about how much information is in the input file.
+
+5.One of the things you will also want to do now, and every time you write a program for submission in this course, is to figure out which parts of the instructor-supplied utilities package you can (or must) use to provide some of the facilities that must appear in your program.
+
+6.Translate your pseudocode into C++, and use the supplied "shell" file names_and_addresses_shell.cpp as a starting point. This file is supplied this week just to show you the proper format for identifying your file in the comments at the beginning, and the proper way to organize/order the various sections of your file. Each submission must be identified in the way shown, and though you may from time to time have a "shell" file like this one to get you started in some direction, this will not necessarily be the norm. You are more likely to have just the sample executable, but this may occasionally be missing as well. However, the general structure of a single-file program will continue to be the same as this one.
+
+7.Continue testing your program until you are convinced it works correctly. You need to give some thought to the testing process, in particular to the sizes of the various input files you should use for testing.
+
+8.Make a final check to ensure your source code is identified, formatted, and documented properly. This week, and from now on, you must make sure that each of your submissions follows the necessary guidelines.
+
+9.Finally, submit the two required files over the web, via the link on the submission page.
+
+Additional Notes, Requirements, Specifications and/or Hints (if any)
+
+1.When you are creating test input files for this program, remember that it is always a "best practice" to have textfiles that contain an end-of-line character at the end, but no extra end-of-line characters. This is another way of saying that you shouldn't have any extra blank lines at the ends of your textfiles, especially if they are to be used as input files to your C++ programs.
+
+2.For this program you should have only one function, other than main. That function must be called DisplayProgramInfo(), and should be called at the appropriate time to display the "on-line" help for the program, giving an overview of how the program works. See the demo executable for details and content.

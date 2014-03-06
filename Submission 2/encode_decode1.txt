@@ -1,0 +1,102 @@
+encode_decode1.txt
+This file contains a program description for Submission 02 in
+CSCI 2341 for the fall of 2012. It is the file of text items
+loaded by the executable for this submission when it runs.
+========================================
+ProgramDescription
+The purpose of this program is to encode and/or decode text messages.
+To perform its task, the program must be invoked as follows:
+
+prompt> encode_decode1.exe option input_file output_file
+
+Here "option" must be a single character: an e to request encoding or a d 
+to request decoding. For encoding input_file must be a file of plain text,
+and output_file will then contain the encoded version. For decoding, the 
+roles of input_file and output_file are reversed.
+
+Any plain-text message can be encoded, and will be encoded using the encoding
+scheme described elsewhere. The program can also decode a message, provided
+the message has been encoded using this same encoding scheme. 
+
+Though not required by the program, using some sort of convention such as the
+filename extensions .pt (for plain text), .enc (for an encoded file), and .dec
+(for an encoded file that has been decoded), is highly recommended.
+
+
+
+
+                                                                   Page 1 of 2
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+The program must recognize any of the following errors, display an appropriate
+message, and terminate:
+
+1. An incorrect number of command-line parameters
+
+2. A first command line parameter that is invalid (not a d or an e)
+
+3. An input file that cannot be opened
+
+4. An output file that cannot be opened
+
+The above order is the order in which the program does its testing.
+
+
+
+
+
+
+
+
+
+                                                                   Page 2 of 2
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+----------------------------------------
+Error:BadParameterCount
+
+Error: There are too many or too few parameters.
+Exactly three are required:
+prompt> encode_decode1.exe option input_file output_file
+Program will now terminate.
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+----------------------------------------
+Error:BadFirstParameter
+
+Error: First parameter must be either d or e.
+Program will now terminate.
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+----------------------------------------
+Error:CannotOpenInputFile
+
+Error: Input file could not be opened.
+Program will now terminate.
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+----------------------------------------
+Error:CannotOpenOutputFile
+
+Error: Output file could not be opened.
+Program will now terminate.
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+----------------------------------------
+Information:EncodingComplete
+
+The contents of the input file have been encoded and placed in the output file.
+Program will now terminate.
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+----------------------------------------
+Information:DecodingComplete
+
+The contents of the input file have been decoded and placed in the output file.
+Program will now terminate.
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+----------------------------------------
+========================================
+This is the end of the file and any text following the above line
+of 40 equal signs will be ignored.

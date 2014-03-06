@@ -1,0 +1,37 @@
+Overview
+
+This is the first part of a two-part submission, in which you learn how to write and "test drive" a C++ class, in particular a class that represents ordinary fractions (otherwise knows as "rational numbers"). This first week your main task is to implement the instructor-supplied specification of a Fraction class in such a way that it links with an instructor-supplied test driver, which is made available only as an object file, not as source code. The follow-up part of the submission, for next week, which has much-abbreviated contact time due to the Thanksgiving holiday, will simply be to implement the driver as well, so that the complete program will then be your implementation.
+
+Steps to Perform
+
+1.Do a quick review of arithmetic with fractions, if you're rusty!
+
+2.Copy the first two sample files listed above and run the program. Experiment with it till you're comfortable with how it works.
+
+3.Now study the specification file for the Fraction class, along with the HTML documentation, which has been produced using doxygen.
+
+4.When you understand what each member function in the Fraction class interface is designed to do, begin your implementation. You have only implemenation to do here, since the design of the class is given to you. You will, however, have to design driver code to test each new feature of the class that you implement, and since you have to design a complete driver to emulate the instructor-supplied one as the second phase of this project, you might want to give more thought to your own test driver code that would otherwise be the case. Note, in this regard, that you will not be able to link to this week's instructor-supplied driver until your class is complete since that driver expects all class code to be available at link time.
+
+5.When you have finished testing your class and you are convinced it works correctly, make sure your source code is identified, formatted, and documented properly, and follows all the required rules and guidelines. You also need to insert a definition containing your personal ID information. (See below under Additional Notes.)
+
+6.Finally, submit the required files over the web, via the link on the course home page. Note that, as usual, it is not necessary to submit a copy of the file of text items.
+
+Additional Notes, Requirements, Specifications and/or Hints (if any)
+
+1.Because the main driver this week is supplied in .obj form, the time that it was compiled into that form is the compile time that shows up on the opening screen. Thus it will be the same for everyone and will remain unchanged.
+
+2.Once again, the doxygen-style comments for your class are all in the specification file fraction.h that you have been given, so you do not have to repeat these in your implementation file fraction.cpp. Of course you do need to include in that file whatever usual C++ comments you need to make your code readable.
+
+3.If you have been thinking about the configuration of this submission, you may have wondered about how your ID information will get displayed on the opening screen, given the fact that the driver program is supplied as a .obj file to which you have no access to change anything.
+
+Well, here's where we make use of the C++ keyword extern. The pre-compiled driver has in it the following line of code:
+
+extern const string MY_ID_INFO;
+
+which simply says that in the current file it is OK to use that name, and its actual definition will show up when necessary (at link time, as it turns out, because you are going to define it in your fraction.cpp file). So you need to put this line in your fraction.cpp file (right after your #include directives):
+
+extern const string MY_ID_INFO = "Lastname:Firstname:A00123456:CSC341??";
+
+Make sure, of course, that it contains your information, and not the generic information shown.
+
+4.In your fraction.cpp file, be sure to have any headers you include from the standard library placed before your include for fraction.h (so that the compiler will know about anything from the standard library that it might see in fraction.h).

@@ -1,0 +1,176 @@
+//textitems.h
+//Lastname:Firstname:A00123456:CSC34101
+//Submission 09
+//Implementing the Student::TextItems Class
+//Specification file for the TextItems class.
+
+#ifndef TEXTITEMS_H
+#define TEXTITEMS_H
+
+#include <vector>
+#include <string>
+using namespace std;
+
+namespace Student
+/**
+Contains just the single class TextItems.
+*/
+{
+
+class TextItems
+/**
+For displaying on-line help and other text messages in console 
+applications. The Textitems class provides a convenient mechanism for
+holding, in memory, any number of "text items" and displaying any one
+of these text items as required by the program. A "text item" consists
+of one or more lines of text and all text items are loaded in from a 
+textfile, which must have the format specified below.
+\n\n One obvious use for this class would be for handling on-line help, but
+any text item, consisting of any number of lines, that needs to be
+displayed one or more times by a program may be considered a candiate
+to become a "text item".
+\n\n Any textfile containing text items must contain at least one text
+item. Any such file and each text item in it must be formatted
+according to the following rules:
+-# All lines of text from the beginning of the file down to the first
+line consisting of 40 equal signs will be ignored. Thus one or more
+lines that serve to identify file content to a human reader of the
+file may be placed before this line. Such a line of 40 equal signs
+must be left-justified. A left-justified line of 40 equal signs looks
+like this:
+<pre>
+========================================
+</pre>
+-# The first line of each text item must be its "title", i.e., the
+exact string that will be used by the program to access that particular
+text item for display. The title is not displayed when the text item is
+displayed; it is used solely for identifying the item. There must be no
+leading or trailing spaces in the title.\n
+-# Each text item must be terminated by a line of exactly 40 dashes
+(hyphens) which is not regarded as part of the item itself (and is
+therefore not displayed when the text item is shown on the screen).
+Each item-terminating line of 40 dashes must be left-justified.
+A left-justified line of 40 dashes looks like this:
+<pre>
+----------------------------------------
+</pre>
+-# The body of a text item may contain one or more lines consisting
+of exactly 40 exclamation marks (!) among the lines of "regular" text.
+Such a line indicates a point where the display must pause and ask the
+user to press Enter to continue, but the line itself is not displayed.
+Such a line of 40 exclamation marks must be left-justified. A
+left-justified line of 40 exclamation marks looks like this:
+<pre>
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+</pre>
+-# The last text item in the file must be followed immediately by an
+additional line of 40 equal signs like that shown above. Any text
+following this line in the file will also be ignored. It may thus
+be inferred that a file of text items will normally contain exactly
+two left-justified lines consisting of 40 equal signs, and there may
+(or may not) be text before the first one, and after the second one,
+with all such text being ingored by any program reading the file.
+-#  Keep all lines in a text item strictly less than 80 characters in
+length. In the first place, any line longer than this will likely wrap
+to a second line, and may not break where you'd like it to.  Second,
+some systems (DOS/Windows, for example) seem to put  an automatic line
+feed at the end of each line of exactly 80 characters.
+So, keeping lines under 80 characters in length will avoid extraneous
+blank lines in the output that might be introduced in this way.
+*/
+{
+public:
+
+    TextItems();
+    /**<
+    Default constructor.
+    @pre None.
+    @post The list of text items has been initialized and is empty.
+    However, the program is then terminated after displaying the
+    following 5-line message:
+<pre>
+Error: File name must be supplied when declaring a %TextItems object. 
+Example of a proper declaration:
+%TextItems TextItems("my_text_item_file.dat");
+Program is now terminating.
+Press Enter to continue ...
+</pre>
+    */
+
+
+    TextItems
+    (
+        const string& fileName //in
+    );
+    /**<
+    Constructor which gets its list of text items from a textfile.
+    @param fileName The name of the file of text items to be used to
+    create the TextItems object.
+    @pre <em>fileName</em> has been initialized.
+    @post Case 1 (typical): If <em>fileName</em> contains the name (or
+    the full pathname) of a properly-formatted file of text items, all
+    text items in that file have been read into memory and the constructed
+    object contains this list of text items.
+    \n\n Case 2 (empty-file error): If <em>fileName</em> contains the
+    name of an empty file, the program displays this 3-line message:
+<pre>
+Error: Input file of text items is empty.
+Program is now terminating.
+Press Enter to continue ...
+</pre>
+    Case 3 (non-existent-file error): If <em>fileName</em> contains the
+    name of a file that doesn't exist, the program will give the user one
+    opportunity to rectify the situation by entering, from the standard
+    input, the name of a valid file of text items (or the name and path
+    to the file if it's not in the working directory). In this case the
+    user is prompted with the following message:
+<pre>
+Error: Cannot find file \<\<name_of_missing_file\>\>.
+Please enter name (and path, if necessary) of the
+appropriate text item file, if you know it.
+Otherwise, just press Enter to terminate:
+</pre>
+    If the user then fails to provide a valid file name, or simply presses
+    Enter, the program displays this 3-line message:
+<pre>
+Error: Input file of text items does not exist.
+Program is now terminating.
+Press Enter to continue ...
+</pre>
+    The program thus terminates if a validly-named file is empty, or
+    if the name of a valid file is not supplied, either initially, or
+    during the one additional permitted attempt.
+    */
+
+    void displayItem
+    (
+        const string& title //
+    ) const;
+    /**<
+    Display a text item on the standard output.
+    @param title The title of the text item to be displayed.
+    @pre <em>title</em> has been initialized.
+    @post Case 1 (typical): The text item identified by <em>title</em>
+    has been displayed, possibly with pauses caused by lines of 40
+    equal signs in the text item itself. Such a line causes the display
+    to pause and the following message to be displayed to the user:
+<pre>
+Press Enter to continue ...
+</pre>
+    Case 2 (non-existent-item error): If the text item designated
+    by <em>title</em> cannot be found, the following 2-line message is
+    displayed:
+<pre>
+Error: Text item \<\<title\>\> not found.
+Press Enter to continue ...
+</pre>
+    */
+
+private:
+
+    vector<vector<string>> itemList;
+};
+
+} //End of the specification part of namespace Student
+
+#endif

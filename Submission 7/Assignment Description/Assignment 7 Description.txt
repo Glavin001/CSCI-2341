@@ -1,0 +1,64 @@
+Overview
+
+You are familiar with the way the TextItems class from the utilities package works, from a user (client) viewpoint. That will be helpful as you now implement a (much simplified) version of this class using an underlying structure involving pointers and a sequence of linked nodes. Your class will be capable of handling just a single text item, unlike the TextItems class, which can handle any number of text items.
+
+So, this submission and the next form a two-part sequence in which you are required to go "behind the scenes" and implement a class which is specified in an instructor-supplied .h specification file. Your version of this class will be called TextItem (singular) and will be placed in a namespace called Student.
+
+Because your class will use dynamic memory, it should (and will, eventually) have the Big Three: a destructor, a copy constructor, and an overloaded assignment operator.
+
+In Part 1 (this part) of this two-part submission, you will implement just the two class constructors (a default, no-parameter constructor, and a one-parameter constructor), as well as a friend function that overloads the insertion operator (<<) for displaying a text item on the standard output. This friend function represents another difference from the TextItems class in the utilities package, which uses a displayItem() member function for display. You will also implement a trace facility for the construction of the TextItem object.
+
+In next week's Part 2, you will implement the destructor, the copy constructor, and the overloaded assignment operator, and extend the trace facility to the destructor.
+
+Steps to Perform
+
+1.Begin by making a copy of demo_test_textitem1.exe, and running it enough times to give you a good understanding of how the program works. That is, be sure you understand the various tests the driver is performing on the TextItem class, as well as how the TextItem class itself works. For testing, you should use several different "text item" input files (of your own creation), of various lengths. A full description of a valid text item file is found in textitem1.h itself, as well as in the corresponding HTML class documentation, and a summary description is also given as on-line information when the program runs.
+
+2.Next, make a copy of textitem1.h. You may not alter this file in any way. Study its contents carefully, along with the corresponding HTML documentation, since this file contains the specifications for the class you are to implement in this Part 1. Note in particular the following:
+	a.The file is protected from the hazards of "double inclusion" with an appropriate #ifndef structure.
+	b.The enclosing namespace is called Student. Your class implementation of this class specification must also be placed in namespace Student in your implementation file textitem1.cpp.
+
+3.Write pseudocode for the class implementation, and revise it until you are convinced that code that implements your pseudocode will be what you need.
+4.Translate your pseudocode into C++ and test it. When you eventually link to the supplied driver, that driver will test your class in the same way you see the class being tested during a run of the demo executable, but during the development phase, you will need to use a simple driver of your own making as you develop various parts of the class. One possibility is to use an appropriately modified version of the sample program test_textitems.cpp used to illustrate the TextItems class from the utilities package.
+
+5.When your class is finished, you will need to link your compiled textitem1.cpp to the supplied main driver file test_textitem1.obj, as well as the usual utilities.h/.obj package, to produce an executable that you can run to test your final class implementation. Your final executable for submission must be produced in this way.
+
+6.Continue testing your program until you are convinced it works correctly.
+
+7.Make sure your source code is identified, formatted, and documented properly.
+
+8.Finally, submit the required files over the web.
+
+Additional Notes, Requirements, Specifications and/or Hints (if any)
+
+1.Although you cannot see it, the call to the DisplayOpeningScreen() function in the driver file test_textitem1.obj looks like this:
+
+DisplayOpeningScreen(MY_ID_INFO,
+    "Submission 07: Implementing the Student::TextItem Class, Part 1";
+
+The parameter MY_ID_INFO is a constant of type string. It is declared extern in my driver, like this:
+
+extern const std::string MY_ID_INFO;
+
+It must be defined (in the global namespace) by you in your textitems1.cpp file, like this:
+
+extern const std::string MY_ID_INFO = "LastName:FirstName:A00123456:csc34101"
+
+Of course, the information must be yours. This is how many different students can use the same pre-compiled driver file, but each can have the executable display his or her unique ID information.
+
+2.Remember that all of the implementation code for your TextItem class must be placed within namespace Student.
+3.Your textitem1.cpp file must not #include the utilities.h file. This means you will need your own "pausing" mechanism for this file (since Scobey::Pause will not be available).
+
+In short, even though you have to link to it because the driver uses it, in your TextItem class development you must not use anything from the Scobey namespace in the utilities.h/.obj package. One way to think of the reason for this is that you don't want to use anything from my utilities package in your class because if you wanted to shrink wrap and sell your class, then you would not want to have to tell tell your users that they also had to buy my package in order to use yours!
+
+4.In the HTML documentation for the TextItem class you will see a reference to a global boolean variable called tracingOn. This is the "switch" or "flag" that turns the tracing feature on and off, according to the user's wishes when the program runs, and it is declared like this in the driver:
+
+extern bool tracingOn;
+
+If the value of tracingOn is true, tracing output will be generated (by the one-parameter constructor in this Part 1, and later (in Part 2) for the destructor). This tracing output is placed in a file whose name is chosen by the user. If the value of tracingOn is false, the tracing code is not generated. The variable must be defined as follows in your implementation file:
+
+bool tracingOn = false;
+
+The driver allows the user to set the value of this variable after the user has entered the name of a file containing a text item, but before that text item is read in from the file and displayed. At that point in your code you need to test the value of this variable to see whether or not "tracing is on". If it is, you must also get from the user the name of the file which is to contain the tracing information, and then write out to that file the required tracing information for the construction of a TextItem object. Examine any such file produced by the demo program to see the required format of this file.
+
+5.As is the case every time you have a precompiled driver to which your code must link, everyone will have the same "build time" for the executable "hard wired" into that driver, namely the time when the .obj file was produced.

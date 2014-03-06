@@ -1,0 +1,43 @@
+Overview
+
+This week you will design and write a program that is essentially a small "utility" program for encoding and decoding textfiles, according to the encoding/decoding scheme described below. The program gets the name of its input and output files, as well as its instruction to encode or decode, from the command line. The command-line parameter details are in the "online help" supplied by the program itself.
+
+Description of the Encoding/Decoding Scheme
+
+Any coding scheme must, of course, be agreed upon by a top-secret international task force. ? Here is a description of the current scheme:
+
+Each character in the file containing the plain-text message is examined and its ASCII code is determined. If this ASCII code is odd, it is first multiplied by 13, and 29 is then added to the resulting product to obtain the (secret) encoded form of that particular character. If the ASCII code is even, the code is first multiplied by 19 and 31 is then added to the resulting product.
+
+The above encoding scheme is quite straightforward, but there are three points that require some discussion:
+
+1.First, there is one character in a file of plain text that must be given special treatment, namely the newline character. The ASCII code for the newline character is 13, and this is the value that must be used when the newline character is encoded using the above encoding scheme.
+
+2.Second, the encoding of each character, including the newline character, must always result in an integer containing exactly four digits when it is written out to the encoded file. Thus, if an integer representing the encoded form of a character does not contain four digits in its usual form, it must be written out to the file containing one or more "leading zeroes" to make up a total of four digits. For example, the integer 458 would have to be regarded as 0458 for purposes of writing it to the file.
+
+3.Third, a maximum of 60 characters is allowed for each line of an encoded file. Among other things, this means that each line (except possibly the last) of a textfile containing an encoded message will contain exactly 60 digit characters (i.e., 15 encoded characters). The last line will only contain exactly 60 characters on those (rare) occasions when the file being encoded contains an exact multiple of 15 characters.
+
+Steps to Perform
+
+1.Copy the sample executable demo_encode_decode1.exe, and its accompanying text items file encode_decode1.txt. Now run the demo without any command-line parameters. Note that it first displays an opening screen and then pauses. When Enter is pressed it displays a second screen of descriptive information for the program (which comes from the text items file), and then terminates. Your program must emulate this behavior exactly, except that the ID info must be yours.
+
+2.Study the descriptive information provided by the "online help" displayed by the program after the opening screen in the step above. Then create some sample input files and run the program using each of these files. Put the program through all its paces, including both encoding and decoding, and give it scenarios in which it is required to display the kinds of errors that it must recognize and report.
+
+3.Write pseudocode for a solution of this problem and revise it until you are convinced that a program that implements your pseudocode will be the one you want. Life will be much easier if you start with the supplied shell as a guide to your development, and you are required to implement the pseudocode you find there.
+
+4.Translate your pseudocode into C++ and continue testing your program until you are convinced it works correctly. Here too you can start with with the supplied shell.
+
+5.Make sure your source code is identified, formatted, and documented properly, and follows all the required rules and guidelines.
+
+6.Finally, submit the two required files over the web, via the link on the course home page.
+
+Additional Notes, Requirements, Specifications and/or Hints (if any)
+
+1.The comments in, and structure of, your program must be analogous to the same features of last week's submission, so review them there if necessary. Much of this is repeated in this week's shell
+
+2.Your opening screen must again be produced with the DisplayOpeningScreen() function from the instructor-supplied utilities package.
+
+3.Your program must use an object of the TextItems class from the utilities package for displaying each of the "error" or "information" messages in the text items file encode_decode1.txt.
+
+4.When writing code, whenever we use a numerical constant, a recommended practice is to give the constant a name to make our code more readable. Otherwise our code tends to be peppered with what are often referred to a "magic numbers" (numbers whose purpose is not immediately obvious). However, in this case, the numbers used for our encoding scheme really are "magic numbers", and it seems pointless to try to make up names for them, so you can just leave those numbers used in the encoding scheme as literals.
+
+5.A final reminder: Don't forget to implement the pseudocode found in the supplied shell.

@@ -1,0 +1,216 @@
+//fraction.h
+//Lastname:Firstname:A00123456:CSC34101
+//Submission 04 and Submission 05
+//Computing with Fractions, Parts 1 and 2
+
+#ifndef FRACTION_H
+#define FRACTION_H
+
+/**
+The specification for the Fraction class. This class allows the user
+to create fractions and perform the "usual" operations on them: addition,
+subtraction, multiplication, division, comparisons, and input/output.
+Note that in the pre-conditions and post-conditions which appear in
+the methods of this class definition, "self" simply refers to the
+fractional object to which the function in question is applied (as
+opposed to the "other" fraction which may be passed in as a parameter and
+is generally denoted by <em>otherFraction</em>). Also, "in reduced form"
+means "in lowest terms", i.e., the numerator and denominator of the
+fraction have no common factor. Note as well that in fact the class
+really only deals in fractions in reduced form. So, for example, if you
+read in the fraction 6/8 and then immediately printed it out again, it
+would appear not as 6/8 but as 3/4 (i.e., in lowest terms, or reduced
+form). This is the way the class has been implemented. Another option
+would be to deal with fractions as they are, and have another method in
+the class interface (reduce(), say) so that the user would have the option
+of reducing any fraction to lowest terms, or not.
+*/
+class Fraction
+{
+public:
+
+    Fraction
+    (
+        int numer = 0, //in
+        int denom = 1  //in
+    );
+    /**<
+    A three-in-one constructor. Both parameters may be specified,
+    the second may be omitted, or both may be omitted.
+    @param numer The value of the numerator in the fraction to
+    be constructed.
+    @param denom The value of the denominator in the fraction to
+    be constructed.
+    @pre None
+    @post Typically, the value of the numerator in self is set to
+    the value of <em>numer</em>, and the value of the denominator in
+    self is set to the value of <em>denom</em>, if both parameters
+    have been supplied. But ... if <em>denom</em> == 0, the following
+    message is displayed and the program is terminated:
+    <pre>
+    Error: Zero denominator not permitted.
+           Program is now terminating
+           directly from class constructor.
+    </pre>
+    If only one parameter is supplied, the numerator of self is set to
+    that value and the denominator of self defaults to a value of 1.
+    If both parameters are omitted, then the numerator of self defaults
+    to a value of 0 and the denominator of self defaults to a value of 1.
+    */
+
+    void set
+    (
+        int numer = 0, //in
+        int denom = 1  //in
+    );
+    /**<
+    Sets (or resets) the value of an already-existing fraction.
+    @return void
+    @pre self must exist.
+    @param numer The value to which the numerator of self is to be set.
+    @param denom The value to which the denominator of self is to be set.
+    @post In the usual case, the numerator of self is set to the value of
+    <em>numer</em>, and the denominator of self is set to the value of
+    <em>denom</em>, if both parameters have been supplied. But ... if
+    <em>denom</em> == 0, the following message is displayed and the
+    program is terminated:
+    <pre>
+    Error: Zero denominator not permitted.
+           Program is now terminating
+           directly from function %set().
+    </pre>
+    If only one parameter is supplied, then the numerator of self is set
+    to that value and the denominator of self defaults to a value of 1.
+    If both parameters are omitted, then the numerator of self defaults
+    to a value of 0 and the denominator of self defaults to a value of 1.
+    */
+
+    Fraction operator+
+    (
+        const Fraction& otherFraction //in
+    ) const;
+    /**<
+    Adds another fraction to self.
+    @return The value of self + <em>otherFraction</em>, in reduced form.
+    @param otherFraction The fraction to be added to self.
+    @pre Both self and <em>otherFraction</em> have been initialized.
+    @post The value of self + <em>otherFraction</em> has been returned,
+    in reduced form.
+    */
+
+    Fraction operator-
+    (
+        const Fraction& otherFraction //in
+    ) const;
+    /**<
+    Subtracts another fraction from self.
+    @return The value of self - <em>otherFraction</em>, in reduced form.
+    @param otherFraction The fraction to be subtracted from self.
+    @pre Both self and <em>otherFraction</em> have been initialized.
+    @post The value of self - <em>otherFraction</em> has been returned,
+    in reduced form.
+    */
+
+    Fraction operator*
+    (
+        const Fraction& otherFraction //in
+    ) const;
+    /**<
+    Multiplies self by another fraction.
+    @return The value of self * <em>otherFraction</em>, in reduced form.
+    @param otherFraction The fraction to be multiplied by self.
+    @pre Both self and <em>otherFraction</em> have been initialized.
+    @post The value of self * <em>otherFraction</em> has been returned,
+    in reduced form.
+    */
+
+    Fraction operator/
+    (
+        const Fraction& otherFraction //in
+    ) const;
+    /**<
+    Divides another fraction into self.
+    @return The value of self / <em>otherFraction</em>, in reduced form.
+    @param otherFraction The fraction to be divided into self.
+    @pre Both self and <em>otherFraction</em> have been initialized.
+    @post The value of self / <em>otherFraction</em> has been returned,
+    in reduced form.
+    */
+
+    bool operator<
+    (
+        const Fraction& otherFraction //in
+    ) const;
+    /**<
+    Compares another fraction to self to see if self is less than that
+    other fraction.
+    @return A boolean value indicating if the other fraction is less
+    than self.
+    @param otherFraction The fraction to be compared with self.
+    @pre Both self and <em>otherFraction</em> have been initialized.
+    @post Returned value is <tt>true</tt> if self is less than
+    <em>otherFraction</em>, and <tt>false</tt> otherwise.
+    */
+
+    bool operator==
+    (
+        const Fraction& otherFraction //in
+    ) const;
+    /**<
+    Determines if another fraction is the same as self.
+    @return A boolean indicating whether self and the
+    other fraction are the same.
+    @param otherFraction The fraction to be compared with self.
+    @pre Both self and <em>otherFraction</em> have been initialized.
+    @post Returned value is <tt>true</tt> if self and
+    <em>otherFraction</em> have the same value, and <tt>false</tt>
+    otherwise.
+    */
+
+
+    friend istream& operator>>
+    (
+        istream& inStream, //inout
+        Fraction& f        //inout
+    );
+    /**<
+    Reads a fractional value from the input stream.
+    @return The input stream.
+    @param inStream The stream from which the fraction is read.
+    @param f The location where the fraction read is stored.
+    @pre The next item in the input stream must have the
+    form: int/int (with spaces possibly occurring before and/or
+    after the '/'. The second int value must be non-zero.
+    @post The value from the input stream having the form
+    int/int has been read into f as numerator/denominator,
+    More specifically, the numerator of self has been given
+    the int value preceding the '/' and the denominator of self
+    has been given the int value following the '/', and then
+    self has been reduced to lowest terms internally.
+    */
+
+    friend ostream& operator<<
+    (
+        ostream& outStream, //inout
+        const Fraction& f   //inout
+    );
+    /**<
+    Writes a fractional value to the output stream.
+    @return The output stream.
+    @param outStream The output stream to which the fraction is written.
+    @param f The location of the fraction to be written.
+    @pre f has been initialized.
+    @post f is printed in the form numerator/denominator,
+    unless the fraction is actually an integer, in which
+    case it is simply printed as that integer. Also, any
+    negative fraction is printed with a negative numerator
+    and a positive denominator. All fractions are displayed
+    in reduced form (lowest terms).
+    */
+
+private:
+    int  numerator;
+    int  denominator;
+};
+
+#endif

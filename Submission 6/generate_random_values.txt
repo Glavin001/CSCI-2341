@@ -1,0 +1,154 @@
+generate_random_values.txt
+========================================
+ProgramDescription
+
+This program requires either exactly seven, or exactly eight, command-line
+parameters. The program performs no error checking on any of the input data
+values entered from the command line, so it is the responsibility of the
+user of the program to make sure that all input values make sense, for the
+expected output.
+          
+The purpose of the program is to generate random values, which may be
+integers, real values, or strings. Only one kind of value is produced
+each time the program is run, and which kind it will be is decided by
+the user.
+
+The user also chooses the number of values to be generated, as well as the
+range within which those values will lie, in the case of numerical values,
+or the characters to be used to generate the random strings if string
+values are desired. In the case of random real values, the number of places
+after the decimal is also user-specified, and in the case of random strings
+the user may specify the minimum and maximum string lengths.
+
+In addition, the user chooses the number of values that appear per line in
+the output, as well as the number of spaces (the "fieldwidth") to be used
+for each value.
+
+                                                                 Page 1 of 6
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+All numerical values (integer and real) are displayed right-justified within
+their allotted fieldwidth, while strings are displayed left-justified within
+theirs.
+
+The following table shows what information each of the seven, or eight,
+parameters supplies in the case of each possible type of value:
+
+parameter
+number        integers     reals         strings
+---------     --------     -----         -------
+  1           seed         seed          seed    (which must be >= 0)
+  2           i            r             s       (for integer, real or string)
+  3           # of values  # of values   # of values
+  4           lowVal       lowVal        firstString
+  5           highVal      highVal       secondString
+  6           # per line   # per line    # per line
+  7           fieldwidth   fieldwidth    fieldwidth
+  8           N/A          # of decimal  N/A
+                             places
+
+
+
+                                                                 Page 2 of 6
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Some notes on the above table:
+
+1. Note that the seed value (for the random generator) must be >= 0. If it is
+   0, a random seed will be used. If it is > 0, the supplied value is the seed.
+
+2. Note that the second parameter must be one of i, r or s, depending on
+   whether the user desires values of type integer, real (double), or string.
+
+3. Note that, in the case of random string value generation, "firstString" and
+   "secondString" must satisfy these properties:
+
+   a) firstString <= secondString
+   b) length of firstString <= length of secondString
+
+   And any generated random string ranString will satisfy these properties:
+
+   a) firstString <= ranString <= secondString
+   b) length of firstString <= length of ranString <= length of secondString
+   c) ranString contains only characters that are found in either firstString
+      or secondString
+
+
+                                                                 Page 3 of 6
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+On this screen and the next two are three examples that illustrate how the
+program is used. Note that we use the "shorthand" grv to stand for the much
+longer program executable name generate_random_values.exe.
+
+=====Example 1 (Generating Random Integers)====================================
+Here is the general form for generating random integers:           
+> grv seed i numVals lowInt highInt numPerLine fieldWidth
+
+As a specific (seven-parameter) example, consider this command:
+> grv 0 i 23 30 60 5 4
+
+This generates 23 random integers in the range 30..60, and displays them 5
+values per line, with each value right-justified in a field of width 4 spaces.
+
+Note that a seed value of 0 is actually used as an indicator that a random seed
+is to be used, while a strictly positive seed value must be given if the value
+is actually to be used as the seed.
+
+Hence, in this case, if the program is run again with exactly the same input,
+a new sequence of random values will be seen that is different from the first
+sequence. But, if a specific seed value > 0 is used, and the other input values
+are kept the same, then the same output values will be seen on each run.
+
+
+
+
+                                                                 Page 4 of 6
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+=====Example 2 (Generating Random Real Numbers)================================
+Here is the general form for generating random real numbers:
+> grv seed r numVals low high numPerLine fieldWidth numDecPlaces
+
+As a specific (eight-parameter) example, consider this command:
+> grv 123 r 16 -0.5 1.4 8 9 3
+
+This generates 16 random real number values in the range from -0.5 to 1.4 and
+displays them 8 values per line, with each value right-justified in a field of
+width 9 spaces and with 3 places after the decimal.
+
+Note that this time around a positive seed value (123) has been supplied, and
+hence the resulting sequence of values may be replicated as often as desired,
+simply by supplying exactly the same input values, including the seed value.
+
+
+
+
+
+
+
+
+                                                                 Page 5 of 6
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+=====Example 3 (Generating Random Strings)=====================================
+Here is the general form for generating random real strings:
+> grv seed s firstString secondString numVals numPerLine fieldWidth
+
+As a specific (seven-parameter) example, consider this command:
+> grv 123 s 16 abc defghij 8 9
+
+This generates 16 random strings in the alphabetic range abc..defghij and
+displays them 8 values per line, with each value left-justified in a field
+of width 9 spaces.
+
+Note that this time too a positive seed value (123) has been supplied, and
+hence the resulting sequence of values may be replicated as often as desired,
+simply by supplying exactly the same input values, including the seed value.
+
+
+
+
+
+
+
+
+                                                                 Page 6 of 6
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+----------------------------------------
+========================================

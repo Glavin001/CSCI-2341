@@ -1,0 +1,36 @@
+Overview
+
+This week your task is straightforward, given that you have successfully completed last week's submission. Your TextItem class uses dynamic memory, so if objects of your class are to be "good citizens", your class requires what we affectionately refer to as "the Big Three", namely a destructor, a copy constructor, and an overloaded assignment operator. These are all foreign concepts to a Java programmer, but critical to correct programming in C++ when a class uses dynamic data.
+
+So, you must add those three items to your class, and also extend the tracing feature to trace the destruction of your class objects if the user wishes. The demo executable illustrates all of these features. This week the demo is menu-driven, which makes it easier to repeat various tests during a single run of the program. The driver also makes use of an object of the TextItems class from the utilities package (not to be confused with your own TextItem class).
+
+Steps to Perform
+
+1.Begin by making a copy of demo_test_textitem2.exe (along with the textitem2.txt file of text items that it needs). Run it enough times to get a good understanding of how the program works. You will again need your own input data files, but you can use the ones you prepared last week. Be sure you understand the various tests the driver is performing on the TextItem class, as well as how the TextItem class itself works with the "big three" added.
+
+2.Next, make a copy of textitem2.h, which is an extended version of textitem1.h. You may not alter this file in any way. Study its contents carefully, along with the corresponding HTML documentation, since this file contains the full specifications for the class you are to implement in this Part 2. Note in particular the following:
+The file is again protected from the hazards of "double inclusion" with an appropriate #ifndef structure.
+The enclosing namespace is again called Student. Your class implementation of this class specification must also be placed in namespace Student in your implementation file textitem2.cpp.
+
+3.Write pseudocode for the class implementation, and revise it until you are convinced that code that implements your pseudocode will be what you need.
+
+4.Translate your pseudocode into C++ and test it. When you eventually link to the supplied driver, that driver will test your class in the same way you see the class being tested during a run of the demo executable, but during the development phase, you will need to use a simple driver of your own making as you develop various parts of the class. A modified version of your own test driver from last week should suffice.
+
+5.When your class is finished, you will need to link your compiled textitem2.cpp to the supplied main driver file test_textitem2.obj, as well as the usual utilities.h/.obj package, to produce an executable that you can run to test your final class implementation. Your final executable for submission must be produced in this way.
+
+6.Continue testing your program until you are convinced it works correctly.
+
+7.Make sure your source code is identified, formatted, and documented properly.
+
+8.Finally, submit the required files over the web.
+
+Additional Notes, Requirements, Specifications and/or Hints (if any)
+
+1.Once again, and for the same reasons, you need to have the following two lines in your textitems2.cpp file:
+
+extern const std::string MY_ID_INFO = "LastName:FirstName:A00123456:csc34101"
+bool tracingOn = false;
+
+And again, the information in MY_ID_INFO must be yours.
+
+2.Remember, as was the case last week, that all of the implementation code for your TextItem class must be placed within namespace Student, and you must not #include the utilities.h file in your textitem2.cpp file.

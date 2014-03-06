@@ -1,0 +1,96 @@
+textitem2.txt
+Contains text items for Part 2 of TextItem class submission sequence.
+========================================
+ProgramDescription
+This program tests the interface of a TextItem class, which is used to display
+a text item read in from a file. It permits testing of the default and one-
+parameter constructors, the destructor, the copy constructor, the overloaded
+assignment operator, and the overloaded insertion operator << for output.
+        
+You need at least two validly constructed such files, each containing a single
+text item, to test this program completely and successfully.
+
+A text item file is structured as follows:
+
+- First, you may have some (optional) lines of text, which you can use to
+  identify the file if you wish to do so.
+
+- Then you must have a left-justified line of 40 equal signs (=).
+
+- Following this, there must be at least one line of text in what will be the
+  "body" of the text item. The lines in the body of the text item may inlcude
+  zero or more left-justified lines of 40 exclamation marks (!). Such a line
+  will cause a pause during display of the item.
+
+- The text item is terminated by another left-justified line of 40 equal signs.
+
+                                                                Screen 1 of 3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+- At the end of the file may be more (optional) lines of text if desired.
+
+Option 3 of the menu allows you to turn tracing on or off (globally). Then,
+when you have chosen option 4 and you are constructing and displaying as many
+TextItem objects as you like, you also have the opportunity to switch tracing
+on and off for each file. When tracing is on, each time a new file of text
+items is read in and the corresponding TextItem class constructed in memory,
+a textfile containing a trace of the constuctor's actions is produced. Also,
+when that object is destroyed and its memory is returned to the heap, a
+textfile containing a trace of the destructor's actions is also produced.
+You can choose the names of the files in which you want these traces to be
+stored.
+
+Option 4 allows you to read in a text item file and then display that text
+item (and do this repeatedly, if you like).
+
+Option 5 tests the copy constructor by first reading in a text item file, and
+constructing the TextItem object. Then a copy of that ojbect is made, and the
+original destroyed. Finally, the copied text item is displayed, to prove that
+the copy is present and intact. You may also do this repeatedly.
+
+                                                                Screen 2 of 3
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Option 6 tests the overloaded assignment operator by first reading in two files
+of text items, one for the left-hand side of the assignment, and one for the
+right-hand side, and then constructing and displaying the corresponding
+TextItem objects. Then the assignment is made, and the right-hand side object
+is destroyed. Finally, the assigned object is displayed, to show that is now
+what the right hand side was. Once again, you may repeat this test.
+
+Option 7 tests the default constructor for the TextItem class. This should
+always be the last test you perform on any given run of the program, since
+the default constructor is expected to fail and terminate the program. The
+reason for this is that a TextItem object should always be created by using
+the non-default (one-parameter) constructor, which takes as its (only) input
+parameter the filename of a (valid) textfile containing a text item.
+
+
+
+
+
+
+
+
+                                                                Screen 3 of 3
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+----------------------------------------
+LoadAndDisplay
+
+Now testing the loading and display of text items stored in files, one text
+item per file. As part of your testing, be sure to enter the name of at least
+one non-existent text item file to see what the contructor does in this case.
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+----------------------------------------
+CopyConstructor
+
+That file has been read into memory and its TextItem object has been
+constructed. Now we make a copy of that TextItem object, and destroy
+the original. Then we attempt to display the copy, to confirm that it
+was in fact a "deep" copy If it displays, we can be reasonably sure
+that it is a deep copy, since the original has been destroyed.
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+----------------------------------------
+========================================

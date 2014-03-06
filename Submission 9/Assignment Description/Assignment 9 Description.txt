@@ -1,0 +1,41 @@
+Overview
+
+This week you will design and write an implementation of your own TextItems class that is analogous to the class of the same name in the utilities package. It will be based on a "vector of vectors" data structure and use the STL vector container class as a fundamental building block. The name of your version of this class will also be TextItems, but it will be placed in a namespace called Student to distinguish it from Scobey::TextItems.
+
+As you know, every well-constructed class that uses dynamic data will normally have one or more constructors, a destructor, a copy constructor and an overloaded assignment operator. The last three of these (the so-called "Big Three": the destructor, the copy constructor, and an overloaded assignment operator) must be programmer-implemented if the class uses dynamic memory, but the default versions are usually sufficient if that is not the case. Your TextItems class will not use any dynamic memory directly (that is, none of its methods will use new to get any storage from the heap. It does use STL vectors, which themselves employ dynamic memory, but a vector takes care of its own dynamic memory, and requires no additional intervention on the part of any client of the vector class.
+
+For these reasons we do not need to implement any of the Big Three for this version of the TextItems class.
+
+So, in the TextItems class you will have just these member functions:
+
+	-Two constructors (the default one and a non-default one)
+	-A displayItem() method for displaying textitems
+
+The demo tests whether all these member functions exist and perform as advertised in the specification file.
+
+Steps to Perform
+
+1.Copy the sample executable demo_test_textitems.exe and run it with several different files of text items (including an empty one). You already have several such files at your disposal, but now would be a good time to make up a new one (or more). You need to have a good grasp of the structure of a text items file before developing a class to deal with such a file. The demo executable, or "driver", is actually just a modified version of the sample program test_textitems.cpp from the test_programs subfolder in the utilities2010 folder under the Sample Code link on the course web site, as you will observe by comparing a run of the sample executable with a run of that program.
+
+2.Study the specification file textitems.h, and experiment with the sample executable, until you understand what is required.
+
+3.Design and implement the TextItems class whose specification is given in the textitems.h file. The name of your implementation file should, of course, be textitems.cpp. For testing, you will need to use a driver of your own, which could easily be a modified version of the same sample program test_textitems.cpp from the test_programs subfolder in the utilities2010 folder under the Sample Code link on the course web site. Note that the TextItems class specification is in a namespace called Student, and you must place your class definition in this namespace as well.
+
+4.Make sure your source code is identified, formatted, and documented properly, and follows the necessary guidelines. You do not have to put doxygen comments in the functions of your implementation file. This is because our convention is to have doxygen comments of functions with the prototypes (in the textitems.h specification file, which is provided for you), not with the definitions (in the textitems.cpp implementation file, which you must create).
+
+5.Finally, submit the required files over the web. Note that you do not have to submit the textitems.h file, since that file is not to be modified and is thus the same for everyone.
+
+Additional Notes, Requirements, Specifications and/or Hints (if any)
+
+1.Note that the sample executable demo_test_textitems.exe was produced by compiling separately a main driver file test_textitems.cpp and a class implementation file textitems.cpp and then linking the resulting .obj file together. Both files had to include textitems.h, of course. You also need to link to the utilities.obj file in the usual way, since the precomiled driver uses some things from there.
+
+	Note, by the way, that even though you have to link to 	utilities.obj because the driver uses some things from it, 	you should not use anything from the Scobey namespace in 	your TextItems class development. The only thing you might 	be inclined to use anyway would be the Pause() function, but 	you don't need that since you can easily used the one-	line/two-statement pause that you seen in (for example) all 	the vector??.cpp examples. The reason you don't want to use 	anything from my utilities package in your class, if you can 	avoid it, is the same as always: Suppose you wanted to 	shrink wrap and sell your class. Then you wouldn't want to 	have to tell your users that they also had to buy my package 	to use yours!
+
+2.Since you are supplied with the .obj form of the driver file, you produce your final executable test_textitems.exe by first producing your own version of the class implementation file textitems.cpp and then, once this is ready, linking textitems.obj (produced from this file by separate compilation) to the driver supplied in object form as test_textitems.obj. And you also need to link to utilities.obj in the usual way.
+
+3.Note again that, with the driver being precompiled, everyone will be displaying the same build time, which will be the build-time of the supplied .obj driver file, rather than the build-time of your final executable.
+
+4.And finallly, once again, because you are being supplied with a pre-compiled .obj file as the driver, you will have to insert the usual definition of your ID information into the global namespace of your class implementation file:
+
+extern const string MY_ID_INFO =
+    "Lastname:Firstname:A00123456:CSC34101";
